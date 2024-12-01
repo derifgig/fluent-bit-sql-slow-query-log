@@ -8,7 +8,17 @@ Worked on:
 - lua 5.4
 - mariadb 10.11.6
 
-## Multiline filters
+## MySQL/Mariadb config
+
+```
+slow_query_log = 1
+log_slow_query_file = /var/log/mysql/mariadb-slow.log
+log_slow_query_time = 0.5
+log_slow_verbosity = query_plan
+log-queries-not-using-indexes = 0
+```
+
+## Fluent-bit Multiline filters
 
 ```yaml
 multiline_parsers:
@@ -24,7 +34,7 @@ multiline_parsers:
         next_state: cont
 ```
 
-## pipeline created by ansible
+## Fluent-bit pipeline created by ansible
 
 ```yaml
 inputs:
