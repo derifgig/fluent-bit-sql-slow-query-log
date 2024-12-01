@@ -58,13 +58,10 @@ function parse_mysql_slow_log(tag, timestamp, record)
 		if line:sub(1, 1) == "#" then
 			-- Individual patterns
 			-- case: # Time: 241130 16:59:06
-			if line:find("# Time:") then
+			-- case: # User@Host: root[root] @ localhost []
+			if line:find("# Time:") or line:find("# User@Host:") then
 				regex = "[%a@_]+: .+$"
 				regex_one = "([%a@_]+): (.+)"
-			-- case: # User@Host: root[root] @ localhost []
-			elseif line:find("# User@Host:") then
-				regex = "[%a@]+: .+$"
-				regex_one = "([%a@_]+): (.+)$"
 			-- General common case
 			else
 				regex = "[%a@_]+: [%a%d%.]+"
