@@ -18,7 +18,7 @@ log_slow_verbosity = query_plan
 log-queries-not-using-indexes = 0
 ```
 
-## Fluent-bit Multiline filters
+## Fluent-bit Multiline parsers
 
 ```yaml
 multiline_parsers:
@@ -75,7 +75,6 @@ outputs:
   "rows_sent": "1",
   "thread_id": "58697",
   "time": "241201 11:36:49",
-  "timestamp": "1733045809",
   "user_host": "root[root] @ localhost []"
 }
 ```
