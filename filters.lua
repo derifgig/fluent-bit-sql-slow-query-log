@@ -21,7 +21,6 @@ end
 -- Source data examples:
 --   # User@Host: root
 --   # Thread_id: 35577
---   SET timestamp=1732978746;
 function parse_by_regex(line, regex)
 	--print("DEBUG parse_by_regex: source: " .. line .. " RegEx: " .. regex)
 	local key, value = line:match(regex)
@@ -67,9 +66,6 @@ function parse_mysql_slow_log(tag, timestamp, record)
 				regex = "[%a@_]+: [%a%d%.]+"
 				regex_one = "([%a@_]+): ([%a%d%.]+)"
 			end
-		elseif line:sub(1, 3) == "SET" then
-			regex = "%a+=[%d%s%.]+;"
-			regex_one = "([%a@_]+)=([%a%d%.]+);"
 		else
 			-- not parsed lines, possible sql query
 			::continue::
