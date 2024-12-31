@@ -63,20 +63,27 @@ outputs:
 
 ```json
 {
-  "_timestamp": 1733045809600000,
-  "bytes_sent": "65",
-  "hostname": "srv-db.my.net",
-  "lock_time": "0.000000",
-  "qc_hit": "No",
-  "query": "select sleep(3);",
-  "query_time": "3.000281",
-  "rows_affected": "0",
-  "rows_examined": "0",
-  "rows_sent": "1",
-  "thread_id": "58697",
-  "time": "241201 11:36:49",
-  "user_host": "root[root] @ localhost []"
+  rows_sent= "1",
+  query_time= "3.000412",
+  user_host= "root[root] @ localhost []",
+  time= "241130 16:59:06",
+  query= "select sleep(3);",
+  rows_examined= "0",
+  tread_id= "35577",
+  timestamp= "1732978746",
+  bytes_sent= "65",
+  rows_affected= "0",
+  qc_hit= "No",
+  lock_time= "0.000000",
 }
+```
+
+### Timestamp value
+
+This pattern with be transfered to the field `timestamp`, and remove from SQL query;
+
+```sql
+SET timestamp=1732978746;
 ```
 
 ## Local test

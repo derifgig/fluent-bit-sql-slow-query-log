@@ -66,6 +66,10 @@ function parse_mysql_slow_log(tag, timestamp, record)
 				regex = "[%a@_]+: [%a%d%.]+"
 				regex_one = "([%a@_]+): ([%a%d%.]+)"
 			end
+		-- for values SET timestamp=1733016002;
+		elseif line:sub(1, 3) == "SET" then
+			regex = "%a+=[%d%s%.]+;"
+			regex_one = "([%a@_]+)=([%a%d%.]+);"
 		else
 			-- not parsed lines, possible sql query
 			::continue::
